@@ -5,15 +5,15 @@ OSGThreadPool is a thread pool implement based on OSG which is extracted from [V
 
 # How to use
 
-1.Add source file into your project.
-2.Write your own osg::Operation.
-2.Create a threadpool, add your operation, and wait for completion.
+1. Add source file into your project.
+2. Write your own osg::Operation.
+2. Create a threadpool, add your operation, and wait for completion.
 
 
 # Example
 
-1.This is a Operation designed to resize a image with given file path and resize ratio.
-(```)
+1. This is a Operation designed to resize a image with given file path and resize ratio.
+(```'')
 class ResizeImageOperation : public osg::Operation
 {
 public:
@@ -34,7 +34,7 @@ private:
 };
 (```)
 
-2.White the main function. A threadpool is created with 8 threads running.
+2. White the main function. A threadpool is created with 8 threads running.
 
 (```)
 void main()

@@ -7,7 +7,7 @@ OSGThreadPool is a thread pool implement based on OSG which is extracted from [V
 
 1. Add source file into your project.
 2. Write your own osg::Operation.
-2. Create a threadpool, add your operation, and wait for completion.
+2. Create a threadpool, add your operations, and wait for completion.
 
 
 # Example
@@ -18,7 +18,7 @@ OSGThreadPool is a thread pool implement based on OSG which is extracted from [V
 class ResizeImageOperation : public osg::Operation
 {
 public:
-	ResizeImageOperation(std::string strPath, float fltRratio) : m_strImagePath(strPath), m_fltRatio(fltRratio)
+	ResizeImageOperation(std::string strPath, float fltRatio) : m_strImagePath(strPath), m_fltRatio(fltRatio)
 	{}
 
 	virtual void operator () (osg::Object* object)
@@ -30,8 +30,8 @@ public:
 	}
 		
 private:
-	std::string m_strImagePath;
-	float 			m_fltRatio;
+	std::string	m_strImagePath;
+	float		m_fltRatio;
 };
 ```
 

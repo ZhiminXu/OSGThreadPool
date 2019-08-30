@@ -13,7 +13,8 @@ OSGThreadPool is a thread pool implement based on OSG which is extracted from [V
 # Example
 
 1. This is a Operation designed to resize a image with given file path and resize ratio.
-(```'')
+
+```
 class ResizeImageOperation : public osg::Operation
 {
 public:
@@ -32,11 +33,11 @@ private:
 		std::string m_strImagePath;
 		float 			m_fltRatio;
 };
-(```)
+```
 
 2. White the main function. A threadpool is created with 8 threads running.
 
-(```)
+```
 void main()
 {
 		std::vector<std::string> vecImagePath;
@@ -49,4 +50,4 @@ void main()
 				
 		pThreadPool.waitForCompletion();
 }
-(```)
+```

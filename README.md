@@ -1,6 +1,6 @@
 # Introduction
 
-OSGThreadPool is a thread pool implement based on OSG which is extracted from [VirtualPlanetBuilder](https://github.com/openscenegraph/VirtualPlanetBuilder)
+OSGThreadPool is a thread pool implement based on OSG which is extracted from [VirtualPlanetBuilder](https://github.com/openscenegraph/VirtualPlanetBuilder).
 
 
 # How to use
@@ -18,20 +18,20 @@ OSGThreadPool is a thread pool implement based on OSG which is extracted from [V
 class ResizeImageOperation : public osg::Operation
 {
 public:
-		ResizeImageOperation(std::string strPath, float fltRratio) : m_strImagePath(strPath), m_fltRatio(fltRratio)
-		{}
+	ResizeImageOperation(std::string strPath, float fltRratio) : m_strImagePath(strPath), m_fltRatio(fltRratio)
+	{}
 
-		virtual void operator () (osg::Object* object)
-		{
-				Mat img = imread(m_strImagePath);
+	virtual void operator () (osg::Object* object)
+	{
+		Mat img = imread(m_strImagePath);
     		Mat dst;
     		resize(img, dst, Size(), fltRratio, fltRratio);
     		imwrite(m_strImagePath);
-		}
+	}
 		
 private:
-		std::string m_strImagePath;
-		float 			m_fltRatio;
+	std::string m_strImagePath;
+	float 			m_fltRatio;
 };
 ```
 
@@ -40,14 +40,14 @@ private:
 ```
 void main()
 {
-		std::vector<std::string> vecImagePath;
-		GetImgPath("D:\\images", vecImagePath);
+	std::vector<std::string> vecImagePath;
+	GetImgPath("D:\\images", vecImagePath);
 		
-		osg::ref_ptr<ThreadPool> pThreadPool = new ThreadPool(8);
+	osg::ref_ptr<ThreadPool> pThreadPool = new ThreadPool(8);
 		
-		for(int i = 0; i != vecImagePath.size(); i++)
-				pThreadPool.run(new ResizeImageOperation(vecImagePath[i], 0.5));
+	for(int i = 0; i != vecImagePath.size(); i++)
+		pThreadPool.run(new ResizeImageOperation(vecImagePath[i], 0.5));
 				
-		pThreadPool.waitForCompletion();
+	pThreadPool.waitForCompletion();
 }
 ```
